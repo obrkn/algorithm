@@ -4,11 +4,14 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
+  var map = {}
   for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [i, j];
-      }
+    var n = nums[i];
+
+    if (map[target-n] >= 0) {
+      return [map[target-n], i];
+    } else {
+      map[n] = i;
     }
   }
 };
